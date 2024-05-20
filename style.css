@@ -57,3 +57,39 @@ textarea {
   font-size: 16px;
   resize: none;
 }
+
+.text-wrapper div {
+  border: 1px solid transparent;
+}
+
+/* div:focus-visible {
+  outline: none;
+  border-color: red;
+} */
+
+.text-wrapper div:focus {
+  border-color: red;
+}
+
+.text-wrapper div:active {
+  border-color: red;
+}
+
+.text-wrapper div:focus-visible {
+  border-color: red;
+  background-color: green;
+}
+.text-wrapper div:focus-within {
+  border-color: red;
+}
+
+.text-wrapper div:target {
+  border-color: red;
+}
+
+
+
+
+.text-wrapper div:hover {
+  border-color: red;
+}
