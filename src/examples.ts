@@ -1,4 +1,9 @@
-export default {
+interface Lines {
+    original: string[];
+    translation: string[];
+}
+
+const lines: Lines = {
     original: [
         "[Verse 2]\n",
         "Wrapped in her arms, I see you across the street\n",
@@ -14,3 +19,6 @@ export default {
         "Вдруг понять что яяя не одна-а у тебя\n"
     ]
 }
+
+
+export default lines

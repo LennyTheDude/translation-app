@@ -1,14 +1,21 @@
 // import './App.css'
 
-import { useEffect, useState } from "react"
+import { ChangeEvent, SyntheticEvent, useEffect, useState } from "react"
 import Lines from "./dumb/Lines"
 
-function SeparateDivs({ original, translation, setOriginal, setTranslation }) {
+interface SepDivsProps {
+    original: string[];
+    translation: string[];
+    setOriginal: Function;
+    setTranslation: Function;
+}
+
+function SeparateDivs({ original, translation, setOriginal, setTranslation }: SepDivsProps) {
   const [activeLine, setActiveLine] = useState(null)
   const [hoveredLine, setHoveredLine] = useState(null)
 
-  const updateText = (event, index) => {
-    console.log('Event: ', event.target.innerText)
+  const updateText = (event: ChangeEvent, index: number) => {
+    console.log('Event: ', event.target.innerHTML)
     console.log('on line ' + index)
   }
 
