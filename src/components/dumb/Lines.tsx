@@ -4,8 +4,8 @@ interface LinesProps {
     tag: string;
     hoveredLine: number | null;
     setHoveredLine: Function;
-    activeLine: number | null;
-    setActiveLine: Function;
+    activeLine?: number | null;
+    setActiveLine?: Function;
 }
 
 function Lines({ lines, editable, tag, hoveredLine, setHoveredLine, activeLine, setActiveLine }: LinesProps) {
@@ -21,7 +21,7 @@ function Lines({ lines, editable, tag, hoveredLine, setHoveredLine, activeLine, 
               className={`${hoveredLine == index && 'hoveredLine'} ${activeLine == index && 'activeLine'}`}
               onMouseEnter={() => setHoveredLine(index)}
               onMouseLeave={() => setHoveredLine(null)}
-              onFocus={() => setActiveLine(index)}
+              onFocus={setActiveLine && (() => setActiveLine(index))}
             >{line}</div>
           )
         })}
