@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react'
-import './App.css'
-import SeparateDivs from './components/SeparateDivs'
+import '../App.css'
+import SeparateDivs from '../components/SeparateDivs'
 // import SameDiv from './components/SameDiv'
 // import TableLayout from './components/TableLayout'
-import ButtonRow from './components/dumb/ButtonRow'
-import lyrics from './examples';
+import ButtonRow from '../components/dumb/ButtonRow'
+import lyrics from '../examples';
 
 function App() {
   const [tab, setTab] = useState('separate-divs')

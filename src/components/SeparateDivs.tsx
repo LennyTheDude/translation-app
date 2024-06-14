@@ -1,7 +1,7 @@
 // import './App.css'
 
 import { ChangeEvent, SyntheticEvent, useEffect, useState } from "react"
-import Lines from "./dumb/Lines"
+import Lines from "../features/text-lines/ui/Lines"
 
 interface SepDivsProps {
     original: string[];
