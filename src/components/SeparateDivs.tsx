@@ -14,9 +14,16 @@ function SeparateDivs({ original, translation, setOriginal, setTranslation }: Se
   const [activeLine, setActiveLine] = useState(null)
   const [hoveredLine, setHoveredLine] = useState(null)
 
-  const updateText = (event: ChangeEvent, index: number) => {
-    console.log('Event: ', event.target.innerHTML)
-    console.log('on line ' + index)
+  const updateOriginal = (event: ChangeEvent, index: number) => {
+    const newOriginal = original;
+    newOriginal[index] = event.target.innerHTML;
+    setOriginal(newOriginal);
+  }
+
+  const updateTranslation = (event: ChangeEvent, index: number) => {
+    const newTranslation = translation;
+    newTranslation[index] = event.target.innerHTML;
+    setTranslation(newTranslation);
   }
 
   return (
@@ -34,8 +41,10 @@ function SeparateDivs({ original, translation, setOriginal, setTranslation }: Se
               setHoveredLine={setHoveredLine}
               activeLine={activeLine}
               setActiveLine={setActiveLine}
+              updateText={updateOriginal}
             />
           </div>
+          <button onClick={() => console.log(original)}>Copy Original Text</button>
         </div>
         <div className="translation-container">
           <h3 className="translation-header">Translated lyrics</h3>
@@ -48,8 +57,10 @@ function SeparateDivs({ original, translation, setOriginal, setTranslation }: Se
               setHoveredLine={setHoveredLine}
               activeLine={activeLine}
               setActiveLine={setActiveLine}
+              updateText={updateTranslation}
             />
           </div>
+          <button onClick={() => console.log(translation)}>Copy Translated Text</button>
         </div>
       </div>
     </div>

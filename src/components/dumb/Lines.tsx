@@ -6,9 +6,10 @@ interface LinesProps {
     setHoveredLine: Function;
     activeLine?: number | null;
     setActiveLine?: Function;
+    updateText?: Function;
 }
 
-function Lines({ lines, editable, tag, hoveredLine, setHoveredLine, activeLine, setActiveLine }: LinesProps) {
+function Lines({ lines, editable, tag, hoveredLine, setHoveredLine, activeLine, setActiveLine, updateText }: LinesProps) {
 
     return (
       <div id={tag} className="text-wrapper">
@@ -22,6 +23,7 @@ function Lines({ lines, editable, tag, hoveredLine, setHoveredLine, activeLine, 
               onMouseEnter={() => setHoveredLine(index)}
               onMouseLeave={() => setHoveredLine(null)}
               onFocus={setActiveLine && (() => setActiveLine(index))}
+              onChange={(e) => updateText && updateText(e, index)}
             >{line}</div>
           )
         })}
