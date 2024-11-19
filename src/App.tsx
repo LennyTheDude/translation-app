@@ -1,34 +1,21 @@
 import { useEffect, useState } from 'react'
 import './App.css'
-import SeparateDivs from './components/SeparateDivs'
-// import SameDiv from './components/SameDiv'
-// import TableLayout from './components/TableLayout'
+import EditLyrics from './components/EditLyrics'
 import ButtonRow from './components/dumb/ButtonRow'
-import lyrics from './examples';
+import ViewLyrics from './components/ViewLyrics';
 
 function App() {
-  const [tab, setTab] = useState('separate-divs')
-  const [original, setOriginal] = useState<string[]>([])
-  const [translation, setTranslation] = useState<string[]>([])
-
-  useEffect(() => {
-    setOriginal(lyrics.original)
-    setTranslation(lyrics.translation)
-  }, [])
+  const [tab, setTab] = useState('edit-lyrics')
 
   const buttons = [
     {
-      id: 'separate-divs',
-      text: 'Separate Divs'
+      id: 'edit-lyrics',
+      text: 'Edit Lyrics'
     },
     {
-      id: 'same-div',
-      text: 'Same Div'
+      id: 'view-lyrics',
+      text: 'View Lyrics'
     },
-    {
-      id: 'table-layout',
-      text: 'Table Layout'
-    }
   ]
 
 
@@ -36,32 +23,14 @@ function App() {
     <div className="container">
       <ButtonRow buttons={buttons} tab={tab} setTab={setTab}/>
       <h1 className="header">
-        Let's translate some lyrics
+        Sam Brown - Stop
       </h1>
       <div className="layout-base">
-        {(tab == 'separate-divs') &&
-          <SeparateDivs
-            original={original}
-            translation={translation}
-            setOriginal={setOriginal}
-            setTranslation={setTranslation}
-          />
+        {(tab == 'edit-lyrics') &&
+          <EditLyrics />
         }
-        {(tab == 'same-div') && <div></div>
-          // <SameDiv
-          //   original={original}
-          //   translation={translation}
-          //   setOriginal={setOriginal}
-          //   setTranslation={setTranslation}
-          // />
-        }
-        {(tab == 'table-layout') && <div></div>
-          // <TableLayout
-          //   original={original}
-          //   translation={translation}
-          //   setOriginal={setOriginal}
-          //   setTranslation={setTranslation}
-          // />
+        {(tab == 'view-lyrics') && 
+          <ViewLyrics />
         }
       </div>
     </div>

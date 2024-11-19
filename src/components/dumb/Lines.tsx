@@ -23,7 +23,7 @@ function Lines({ lines, editable, tag, hoveredLine, setHoveredLine, activeLine, 
               onMouseEnter={() => setHoveredLine(index)}
               onMouseLeave={() => setHoveredLine(null)}
               onFocus={setActiveLine && (() => setActiveLine(index))}
-              onChange={(e) => updateText && updateText(e, index)}
+              onInput={(e) => updateText && updateText(e, index)}
             >{line}</div>
           )
         })}
