@@ -1,39 +1,47 @@
-import { useEffect, useState } from 'react'
 import './App.css'
 import EditLyrics from './components/EditLyrics'
-import ButtonRow from './components/dumb/ButtonRow'
+import { ImportLyrics } from './components/ImportLyrics';
 import ViewLyrics from './components/ViewLyrics';
+import { useLyrics } from './hooks/useLyrics';
+import { AppContext } from './services/appContext';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 function App() {
-  const [tab, setTab] = useState('edit-lyrics')
-
-  const buttons = [
-    {
-      id: 'edit-lyrics',
-      text: 'Edit Lyrics'
-    },
-    {
-      id: 'view-lyrics',
-      text: 'View Lyrics'
-    },
-  ]
-
+  const {
+    original,
+    updateOriginal,
+    translation,
+    updateTranslation,
+    activeLine,
+    setActiveLine,
+    hoveredLine,
+    setHoveredLine,
+    setupLyrics,
+  } = useLyrics();
 
   return (
-    <div className="container">
-      <ButtonRow buttons={buttons} tab={tab} setTab={setTab}/>
-      <h1 className="header">
-        Sam Brown - Stop
-      </h1>
-      <div className="layout-base">
-        {(tab == 'edit-lyrics') &&
-          <EditLyrics />
-        }
-        {(tab == 'view-lyrics') && 
-          <ViewLyrics />
-        }
-      </div>
-    </div>
+    <AppContext.Provider value={{
+      original,
+      updateOriginal,
+      translation,
+      updateTranslation,
+      activeLine,
+      setActiveLine,
+      hoveredLine,
+      setHoveredLine,
+      setupLyrics,
+    }}>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/">
+            <Route index element={<ImportLyrics />} />
+            <Route path="translate" element={<EditLyrics />} />
+            <Route path="view" element={<ViewLyrics />} />
+            {/* <Route path="*" element={<NoPage />} /> */}
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </AppContext.Provider>
   )
 }
 

@@ -95,6 +95,15 @@ textarea {
 
 .text-wrapper div {
   border: 1px solid transparent;
+  height: 20px;
+}
+
+.text-container {
+  height: 100%;
+}
+
+#lyrics {
+  height: 90%;
 }
 
 /* div:focus-visible {

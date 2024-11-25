@@ -7,12 +7,7 @@ export const useLyrics = () => {
 
   const [activeLine, setActiveLine] = useState<number | null>(null)
   const [hoveredLine, setHoveredLine] = useState<number | null>(null)
-
-  useEffect(() => {
-    setOriginal(lyrics.original)
-    setTranslation(lyrics.translation)
-  }, [])
-
+  
   const updateOriginal = (event: ChangeEvent, index: number) => {
     const newOriginal = original;
     newOriginal[index] = event.target.innerHTML;
@@ -25,6 +20,16 @@ export const useLyrics = () => {
     setTranslation(newTranslation);
   }
 
+  const setupLyrics = (lyrics: string) => {
+    const newOriginal = lyrics.split('\n')
+    setOriginal(newOriginal)
+    const newTranslation = []
+    for (let i = 0; i < newOriginal.length; i++) {
+      newTranslation.push('');
+    }
+    setTranslation(newTranslation)
+  }
+
   return {
     original,
     updateOriginal,
@@ -33,6 +38,7 @@ export const useLyrics = () => {
     activeLine,
     setActiveLine,
     hoveredLine,
-    setHoveredLine
+    setHoveredLine,
+    setupLyrics,
   }
 }

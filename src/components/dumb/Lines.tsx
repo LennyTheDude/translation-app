@@ -19,7 +19,7 @@ function Lines({ lines, editable, tag, hoveredLine, setHoveredLine, activeLine, 
               key={`original-line-${index}`}
               contentEditable={editable}
               suppressContentEditableWarning={true}
-              className={`${hoveredLine == index && 'hoveredLine'} ${activeLine == index && 'activeLine'}`}
+              className={`${hoveredLine == index ? 'hoveredLine' : ''} ${activeLine == index ? 'activeLine' : ''}`}
               onMouseEnter={() => setHoveredLine(index)}
               onMouseLeave={() => setHoveredLine(null)}
               onFocus={setActiveLine && (() => setActiveLine(index))}
