@@ -62,13 +62,20 @@ body {
 }
 
 .original-container, .translation-container {
-  width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: stretch;
   align-items: stretch;
   gap: 10px;
+}
+
+.original-container {
+  width: fit-content;
+}
+
+.translation-container {
+  flex-grow: 1;
 }
 
 .original, .translation {

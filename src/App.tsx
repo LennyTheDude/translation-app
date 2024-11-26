@@ -1,5 +1,5 @@
-import './App.css'
-import EditLyrics from './components/EditLyrics'
+import './App.scss'
+import EditLyrics from './components/EditLyrics/index'
 import { ImportLyrics } from './components/ImportLyrics';
 import ViewLyrics from './components/ViewLyrics';
 import { useLyrics } from './hooks/useLyrics';

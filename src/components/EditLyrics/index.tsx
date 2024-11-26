@@ -1,7 +1,7 @@
 // import './App.css'
-import Lines from "./dumb/Lines"
+import Lines from "../dumb/Lines"
 import { useContext } from "react";
-import { AppContext } from "../services/appContext";
+import { AppContext } from "../../services/appContext";
 
 function EditLyrics() {
   const { original, updateOriginal, translation, updateTranslation, activeLine, setActiveLine, hoveredLine, setHoveredLine } = useContext(AppContext)
