@@ -19,7 +19,7 @@ function ViewLyrics() {
               setHoveredLine={setHoveredLine}
             />
           </div>
-          <button onClick={() => console.log(original.join(''))}>Copy Original Text</button>
+          <button onClick={() => console.log(original.join('\n'))}>Copy Original Text</button>
         </div>
         <div className="translation-container">
           <h3 className="translation-header">Translated lyrics</h3>
@@ -32,7 +32,7 @@ function ViewLyrics() {
               setHoveredLine={setHoveredLine}
             />
           </div>
-          <button onClick={() => console.log(translation.join(''))}>Copy Translated Text</button>
+          <button onClick={() => console.log(translation.join('\n'))}>Copy Translated Text</button>
         </div>
       </div>
     </div>
